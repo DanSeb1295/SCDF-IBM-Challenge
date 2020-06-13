@@ -112,7 +112,7 @@
 }
 
 .hub-container.allocation {
-  border: 5px dashed green;
+  border: 5px dashed red;
   background-color: white;
   border-radius: 5px;
   opacity: 0.8;

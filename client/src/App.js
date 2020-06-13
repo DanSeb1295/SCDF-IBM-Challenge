@@ -50,15 +50,15 @@ const positionsData = [
 ]
 
 const hubsData = [
-  { id: 1, lat: 1.402165, lng: 103.907280, r3: 1 },
-  { id: 1, lat: 1.412161, lng: 103.897351, r3: 0 },
+  { id: 1, lat: 1.402165, lng: 103.907280, r3: 0 },
+  { id: 1, lat: 1.412161, lng: 103.897351, r3: 1 },
   { id: 1, lat: 1.407161, lng: 103.898351, r3: 0 }
 ]
 
 const hubsSuggestion = [
   { id: 1, lat: 1.402165, lng: 103.907280, r3: 0 },
-  { id: 1, lat: 1.412161, lng: 103.897351, r3: 1 },
-  { id: 1, lat: 1.407161, lng: 103.898351, r3: 0 }
+  { id: 1, lat: 1.412161, lng: 103.897351, r3: 0 },
+  { id: 1, lat: 1.407161, lng: 103.898351, r3: 1 }
 ]
 
 class App extends Component {
