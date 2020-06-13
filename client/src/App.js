@@ -277,10 +277,15 @@ const TopRiskLocations = props => {
 
   return (
     <div className="locations-container">
-      <h3>Top Fire Hazard Risks</h3>
+      <h3>Top Fire Hazard Areas</h3>
       { sortedLocations &&
         sortedLocations.map((location, index) => 
-          <p key={index} onClick={() => onClick(location.lat, location.lng)}>{`${index + 1}. ${location.name}`}</p>
+          <div>
+            <p key={index} onClick={() => onClick(location.lat, location.lng)}>{`${index + 1}. ${location.name}`}</p>
+            { location.weight === 1 &&
+              <img className="fire-icon-sm" src={fireIcon} alt=""/>
+            }
+          </div>
         )
       }
     </div>

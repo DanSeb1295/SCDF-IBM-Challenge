@@ -139,3 +139,11 @@
   opacity: .8;
   transform: translate(-111px, -169px);
 }
+
+.locations-container p {
+  display: inline-flex;
+}
+
+.fire-icon-sm {
+  display: none;
+}
