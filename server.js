@@ -15,8 +15,7 @@ const PWD=process.env.PWD_IBM;
 const TABLE=process.env.TABLE_IBM;
 
 const connStr = "DATABASE=" + DATABASE + ";HOSTNAME=" + HOSTNAME + ";UID=" + UID + ";PWD=" + PWD + ";PORT=" + PORT + ";PROTOCOL=TCPIP";
-console.log('>>>> CUSTOM_ENV_VAR: ', connStr)
-'DATABASE=BLUDB;HOSTNAME=dashdb-txn-sbox-yp-dal09-11.services.dal.bluemix.net;UID=zft48485;PWD=/app;PORT=50000;PROTOCOL=TCPIP'
+
 /* -------------------- APIs -------------------- */
 app.get('/ibm', (req, res) => {
   ibmdb.open(connStr).then(
