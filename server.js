@@ -5,6 +5,14 @@ const app = express();
 app.use(express.json({limit: '50mb', extended: true})); // support json encoded bodies
 app.use(express.urlencoded({limit: '50mb', extended: true}));
 
+// ENV Var
+DATABASE=process.env.DATABASE
+HOSTNAME=process.env.HOSTNAME
+PORT=process.env.PORT
+UID=process.env.UID
+PWD=process.env.PWD
+TABLE=process.env.TABLE
+
 const connStr = "DATABASE=" + DATABASE + ";HOSTNAME=" + HOSTNAME + ";UID=" + UID + ";PWD=" + PWD + ";PORT=" + PORT + ";PROTOCOL=TCPIP";
 
 /* -------------------- APIs -------------------- */
