@@ -8,8 +8,8 @@ app.use(express.urlencoded({limit: '50mb', extended: true}));
 // ENV Var
 DATABASE=process.env.DATABASE
 HOSTNAME=process.env.HOSTNAME
-PORT=process.env.PORT
-UID=process.env.UID
+PORT=50000
+UID="zft48485"
 PWD=process.env.PWD
 TABLE=process.env.TABLE
 
