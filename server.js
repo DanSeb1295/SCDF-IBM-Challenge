@@ -7,14 +7,15 @@ app.use(express.json({limit: '50mb', extended: true})); // support json encoded 
 app.use(express.urlencoded({limit: '50mb', extended: true}));
 
 // ENV Var
-const DATABASE=process.env.DATABASE
-const HOSTNAME=process.env.HOSTNAME
-const PORT=50000
-const UID="zft48485"
-const PWD=process.env.PWD
-const TABLE=process.env.TABLE
+const DATABASE=process.env.DATABASE;
+const HOSTNAME=process.env.HOSTNAME;
+const PORT=50000;
+const UID="zft48485";
+const PWD=process.env.PWD;
+const TABLE=process.env.TABLE;
 
 const connStr = "DATABASE=" + DATABASE + ";HOSTNAME=" + HOSTNAME + ";UID=" + UID + ";PWD=" + PWD + ";PORT=" + PORT + ";PROTOCOL=TCPIP";
+console.log('>>>> CUSTOM_ENV_VAR: ', connStr)
 
 /* -------------------- APIs -------------------- */
 app.get('/ibm', (req, res) => {
