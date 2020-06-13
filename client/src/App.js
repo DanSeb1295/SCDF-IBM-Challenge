@@ -6,7 +6,9 @@ import cloneDeep from 'lodash/cloneDeep';
 import videoLow from './assets/video_low.mp4';
 import lampPostIcon from './assets/lamppost.svg';
 import fireIcon from './assets/fire.svg';
-import r3Icon from './assets/3r.svg';
+import r3Icon from './assets/3r.png';
+import redSpot from './assets/redspot.svg';
+import Loader from 'react-loader-spinner'
 
 const APIKey = 'AIzaSyCzDglpbAYLMLeevqKfV7cXftnX_ZBH0Co';
 const positionsData = [
@@ -43,26 +45,33 @@ const positionsData = [
   { id: 31, lat: 1.407662, lng: 103.900252, weight: 0.2, name: 'Waterway Terraces' },
   { id: 32, lat: 1.403887, lng: 103.902590, weight: 1.0, name: 'Punggol MRT' },
   { id: 33, lat: 1.400262, lng: 103.902354, weight: 0.2, name: 'Edgefield Secondary School' },
-  { id: 34, lat: 1.408477, lng: 103.905294, weight: 0.5, name: 'Punggol Town Hub' },
-  { id: 35, lat: 1.402161, lng: 103.897351, weight: 0.1, name: 'Punggol Twin Waterfalls' }
+  { id: 34, lat: 1.408477, lng: 103.905294, weight: 0.3, name: 'Punggol Town Hub' },
+  { id: 35, lat: 1.402161, lng: 103.897351, weight: 0.4, name: 'Punggol Twin Waterfalls' }
 ]
 
 const hubsData = [
-  { id: 1, lat: 1.402161, lng: 103.907351, r3: 1 },
-  { id: 1, lat: 1.382161, lng: 103.917351, r3: 0 },
-  { id: 1, lat: 1.401161, lng: 103.905351, r3: 0 }
+  { id: 1, lat: 1.402165, lng: 103.907280, r3: 1 },
+  { id: 1, lat: 1.412161, lng: 103.897351, r3: 0 },
+  { id: 1, lat: 1.407161, lng: 103.898351, r3: 0 }
+]
+
+const hubsSuggestion = [
+  { id: 1, lat: 1.402165, lng: 103.907280, r3: 0 },
+  { id: 1, lat: 1.412161, lng: 103.897351, r3: 1 },
+  { id: 1, lat: 1.407161, lng: 103.898351, r3: 0 }
 ]
 
 class App extends Component {
   state = {
-    zoom: 12,
     videoLow,
+    allocationMode: false,
+    zoom: 12,
     videoFeedVisible: false,
     heatmapVisible: true,
     heatmapPoints: {    
       positions: [...positionsData],
       options: {   
-        radius: 35,
+        radius: 30,
         opacity: 1
       }
     }
@@ -138,7 +147,7 @@ class App extends Component {
       {
         origin: origin,
         destination: destination,
-        travelMode: maps.TravelMode.TWO_WHEELER
+        travelMode: maps.TravelMode.WALKING
       },
       (result, status) => {
         if (status === maps.DirectionsStatus.OK) {
@@ -159,8 +168,16 @@ class App extends Component {
     );
   }
 
-  allocate3R = () => {
-    // TODO
+  toggleAllocationMode = () => {
+    this.setState({ loading: true });
+    setTimeout(() => {
+      this.setState(prevState => {
+        return {
+          allocationMode: !prevState.allocationMode,
+          loading: false
+        }
+      })
+    }, 2000)
   }
 
   onClearRoute = (event) => {
@@ -195,7 +212,7 @@ class App extends Component {
   }
 
   render () {
-    const { heatmapVisible, heatmapPoints, videoFeedVisible, videoLow, center, zoom } = this.state;
+    const { heatmapVisible, heatmapPoints, videoFeedVisible, videoLow, center, zoom, allocationMode, loading } = this.state;
     const { positions } = heatmapPoints;
     
     return (
@@ -214,13 +231,20 @@ class App extends Component {
           >
             { positions && 
               positions.map(position => {
-                return <LampPost {...position} onClick={() => this.toggleVideoFeed(position.lat, position.lng)} />
+                return <LampPost {...position} onClick={() => this.toggleVideoFeed(position.lat, position.lng)} zoom={zoom}/>
               })
             }
-            { hubsData && zoom >= 14 &&
+            { hubsData && zoom >= 14 && !allocationMode &&
               hubsData.map(hub => {
                 return (
-                  <Hub {...hub} />
+                  <Hub {...hub} allocationMode={allocationMode} />
+                )
+              })
+            }
+            { hubsSuggestion && zoom >= 14 && allocationMode &&
+              hubsSuggestion.map(hub => {
+                return (
+                  <Hub {...hub} allocationMode={allocationMode} />
                 )
               })
             }
@@ -235,7 +259,7 @@ class App extends Component {
             }
           </GoogleMapReact>
           <TopRiskLocations locations={positions} onClick={this.toggleVideoFeed}/>
-          <AllocationButton onClick={this.allocate3R} />
+          <AllocationButton allocationMode={allocationMode} onClick={this.toggleAllocationMode} loading={loading} />
           { videoFeedVisible &&
             <div className="dark-overlay" onClick={this.toggleVideoFeed}>
               <video src={videoLow} autoPlay/>
@@ -253,7 +277,7 @@ const TopRiskLocations = props => {
 
   return (
     <div className="locations-container">
-      <h3>Top Fire Risks</h3>
+      <h3>Top Fire Hazard Risks</h3>
       { sortedLocations &&
         sortedLocations.map((location, index) => 
           <p key={index} onClick={() => onClick(location.lat, location.lng)}>{`${index + 1}. ${location.name}`}</p>
@@ -264,10 +288,15 @@ const TopRiskLocations = props => {
 }
 
 const LampPost = props => {
-  const { lat, lng, onClick } = props;
+  const { lat, lng, onClick, weight, zoom } = props;
 
   return (
-    <img className='lamppost-icon' src={lampPostIcon} alt="LampPost Icon" lat={lat} lng={lng} onClick={onClick} />
+    <div>
+      <img className='lamppost-icon' src={lampPostIcon} alt="LampPost Icon" lat={lat} lng={lng} onClick={onClick} />  
+      { weight > 0.5 && zoom >= 14 &&
+        <img className='redspot-icon' src={redSpot} alt="" lat={lat} lng={lng} />
+      }
+    </div>
   )
 }
 
@@ -280,19 +309,27 @@ const Fire = props => {
 }
 
 const AllocationButton = props => {
+  const { allocationMode, onClick, loading } = props;
+  
   return (
-    <div className="allocate-button">
-      Optimise 3R Allocation
+    <div className="allocate-button" onClick={onClick}>
+      { !loading && allocationMode && 'Show Current' }
+      { !loading && !allocationMode && 'Optimise 3R Allocation' }
+      { loading &&
+        <Loader type="TailSpin" height={14} width={14} color={'#FFF'} />
+      }
     </div>
   )
 }
 
 const Hub = props => {
-  const { r3 } = props;
-
+  const { r3, allocationMode } = props;
   return (
-    <div className="hub-container" style={r3 ? { opacity: 0.9 } : null} >
-      <img className="r3-icon" src={r3 ? r3Icon : ''} alt=""/>
+    <div className="hub-title">
+      Docking Hub
+      <div className={`${allocationMode ? 'hub-container allocation' : 'hub-container'}`} style={r3 ? { opacity: 1 } : { opacity: 0.4 }} >
+        <img className="r3-icon" src={r3 ? r3Icon : ''} alt=""/>
+      </div>
     </div>
   )
 }

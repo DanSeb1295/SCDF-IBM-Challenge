@@ -49,7 +49,8 @@
 }
 
 .lamppost-icon,
-.fire-icon {
+.fire-icon,
+.redspot-icon {
   height: 50px;
   width: 50px;
   index: 10;
@@ -61,12 +62,12 @@
 .fire-icon {
   height: 150px;
   width: 150px;
-  transform: translate(-75px, -75px);
+  transform: translate(-82px, -120px);
 }
 
 .r3-icon {
-  height: 50px;
-  width: 50px;
+  height: 30px;
+  width: 30px;
   index: 5;
   cursor: pointer;
   opacity: 0.75;
@@ -81,7 +82,7 @@
   bottom: 0;
   left: 0;
   height: auto;
-  width: auto;
+  width: 200px;
   padding: 10px 20px;
   font-size: 14px;
   background-color: #146474;
@@ -92,6 +93,7 @@
   border-radius: 5px;
   margin: 20px;
   cursor: pointer;
+  text-align: center;
 }
 
 .allocate-button:hover {
@@ -103,17 +105,16 @@
   border: 5px solid red;
   background-color: white;
   border-radius: 10px;
-  width: 50px;
-  height: 50px;
-  transform: translate(-25px, -25px);
-  opacity: 0.8;
+  width: 30px;
+  height: 30px;
+  opacity: 0.9;
+  padding: 10px;
 }
 
-.hub-container.suggestion {
-  border: 5px solid red;
+.hub-container.allocation {
+  border: 5px dashed green;
   background-color: white;
   border-radius: 5px;
-  transform: translate(-25px, -25px);
   opacity: 0.8;
 }
 
@@ -122,4 +123,19 @@
 .fire-icon:hover,
 .hub-container:hover {
   opacity: 1
+}
+
+.hub-title {
+  width: 100px;
+  color: white;
+  text-align: left;
+  transform: translate(-25px, -25px);
+  font-size: 15px;
+}
+
+.redspot-icon {
+  height: 200px;
+  width: 200px;
+  opacity: .8;
+  transform: translate(-111px, -169px);
 }
