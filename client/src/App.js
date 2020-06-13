@@ -1,22 +1,24 @@
-/* global google */
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import './App.css';
+import video from './assets/video.mov';
 
 const APIKey = 'AIzaSyCzDglpbAYLMLeevqKfV7cXftnX_ZBH0Co';
+const google = window.google;
 
 class App extends Component {
   state = {
+    video,
     videoFeedVisible: false,
     heatmapVisible: true,
     heatmapPoints: {    
       positions: [
         { lat: 1.354, lng: 103.815, weight: 0.1, name: 'Punggol' },
-        { lat: 1.365, lng: 103.8151, weight: 0.2, name: 'Sengkang' },
-        { lat: 1.3762, lng: 103.8152, weight: 0.3, name: 'Buona Vista' },
-        { lat: 1.3873, lng: 103.8153, weight: 0.4, name: 'Jurong West CC' },
-        { lat: 1.3984, lng: 103.8154, weight: 0.9, name: 'Choa Chu Kang LRT' },
-        { lat: 1.3095, lng: 103.8155, weight: 1, name: 'Changi Airport'}
+        { lat: 1.356, lng: 103.8151, weight: 0.2, name: 'Sengkang' },
+        { lat: 1.358, lng: 103.8152, weight: 0.3, name: 'Buona Vista' },
+        { lat: 1.360, lng: 103.8153, weight: 0.4, name: 'Jurong West CC' },
+        { lat: 1.362, lng: 103.8154, weight: 0.9, name: 'Choa Chu Kang LRT' },
+        { lat: 1.364, lng: 103.8155, weight: 1, name: 'Changi Airport'}
       ],
       options: {   
         radius: 10,
@@ -26,11 +28,48 @@ class App extends Component {
   }
 
   toggleVideoFeed = () => {
+    // TODO: Make Dynamic Based onClick Target
     this.setState(prevState => {
       return {
         videoFeedVisible: !prevState.videoFeedVisible
       }
     })
+  }
+
+  toggleHeatMap = () => {
+    this.setState(prevState => {
+      return {
+        heatmapVisible: !prevState.heatmapVisible
+      }
+    })
+  }
+
+  handleApiLoaded = (map, maps) => {
+    this.setState({ map, maps });
+  }
+
+  getRoute = (origin, destination) => {
+    const { map, maps } = this.state;
+    const directionService = new maps.DirectionsService()
+    directionService.route(
+      {
+        origin: origin,
+        destination: destination,
+        travelMode: maps.TravelMode.TWO_WHEELER
+      },
+      (result, status) => {
+        if (status === maps.DirectionsStatus.OK) {
+          const renderer = new maps.DirectionsRenderer();
+          renderer.setMap(map)
+          renderer.setDirections(result);
+          this.setState({
+            directions: result
+          });
+        } else {
+          console.error(`error fetching directions ${result}`);
+        }
+      }
+    );
   }
 
   static defaultProps = {
@@ -59,20 +98,27 @@ class App extends Component {
   }
 
   render () {
-    const { heatmapVisible, heatmapPoints } = this.state;
+    const { heatmapVisible, heatmapPoints, videoFeedVisible, video, maps, directions } = this.state;
     const { positions } = heatmapPoints;
-    
+
     return (
-      <div className="App">
-        <div style={{ height: '100vh', width: '100%' }}>
+      <div className="App" onClick={() => this.getRoute({lat: 1.354, lng: 103.815}, { lat: 1.354, lng: 103.915 })}>
+        <div id="map" style={{ height: '100vh', width: '100%' }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: APIKey }}
-            {...this.props}
-            heatmap={heatmapPoints}
+            heatmap={heatmapVisible ? heatmapPoints : {positions: []}}
             heatmapLibrary={true}
+            yesIWantToUseGoogleMapApiInternals={true}
+            onGoogleApiLoaded={({ map, maps }) => this.handleApiLoaded(map, maps)}
+            {...this.props}
           >
           </GoogleMapReact>
           <TopRiskLocations locations={positions} />
+          { videoFeedVisible &&
+            <div className="dark-overlay">
+              <video src={video} autoPlay/>
+            </div>
+          }
         </div>
       </div>
     );
@@ -88,7 +134,7 @@ const TopRiskLocations = (props) => {
       <h3>Top Fire Risks</h3>
       { sortedLocations &&
         sortedLocations.map((location, index) => 
-          <p>{`${index + 1}. ${location.name}`}</p>
+          <p key={index}>{`${index + 1}. ${location.name}`}</p>
         )
       }
     </div>

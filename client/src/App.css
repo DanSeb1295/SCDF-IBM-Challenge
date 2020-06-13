@@ -13,8 +13,28 @@
   background-color: #146474;
   color: white;
   border: 1px solid rgba(255, 255, 255, .5);
-  box-shadow: 0 0 4px 4px rgba(50, 50, 50, .5);
+  box-shadow: 0 0 4px 4px rgba(50, 50, 50, .75);
   box-sizing: border-box;
   border-radius: 5px;
   margin: 20px;
+}
+
+.dark-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+}
+
+.dark-overlay video {
+  width: calc(100% - 40px);
+  height: auto;
+  max-height: calc(100% - 40px);
+  vertical-align: middle;
 }
