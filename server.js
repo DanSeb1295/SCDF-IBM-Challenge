@@ -10,13 +10,13 @@ app.use(express.urlencoded({limit: '50mb', extended: true}));
 const DATABASE=process.env.DATABASE;
 const HOSTNAME=process.env.HOSTNAME;
 const PORT=50000;
-const UID="zft48485";
-const PWD=process.env.PWD;
-const TABLE=process.env.TABLE;
+const UID=process.env.UID_IBM;
+const PWD=process.env.PWD_IBM;
+const TABLE=process.env.TABLE_IBM;
 
 const connStr = "DATABASE=" + DATABASE + ";HOSTNAME=" + HOSTNAME + ";UID=" + UID + ";PWD=" + PWD + ";PORT=" + PORT + ";PROTOCOL=TCPIP";
 console.log('>>>> CUSTOM_ENV_VAR: ', connStr)
-
+'DATABASE=BLUDB;HOSTNAME=dashdb-txn-sbox-yp-dal09-11.services.dal.bluemix.net;UID=zft48485;PWD=/app;PORT=50000;PROTOCOL=TCPIP'
 /* -------------------- APIs -------------------- */
 app.get('/ibm', (req, res) => {
   ibmdb.open(connStr).then(
