@@ -293,7 +293,7 @@ const LampPost = props => {
   return (
     <div>
       <img className='lamppost-icon' src={lampPostIcon} alt="LampPost Icon" lat={lat} lng={lng} onClick={onClick} />  
-      { weight > 0.5 && zoom >= 14 &&
+      { weight > 0.75 && zoom >= 14 &&
         <img className='redspot-icon' src={redSpot} alt="" lat={lat} lng={lng} />
       }
     </div>
