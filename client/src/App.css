@@ -6,7 +6,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: auto;
+  height: 60vh;
   width: auto;
   padding: 10px 20px;
   font-size: 14px;
@@ -17,6 +17,11 @@
   box-sizing: border-box;
   border-radius: 5px;
   margin: 20px;
+  overflow-y: auto;
+}
+
+.locations-container p:hover {
+  color: #BBB;
 }
 
 .dark-overlay {
@@ -37,4 +42,84 @@
   height: auto;
   max-height: calc(100% - 40px);
   vertical-align: middle;
+}
+
+.locations-container p {
+  cursor: pointer;
+}
+
+.lamppost-icon,
+.fire-icon {
+  height: 50px;
+  width: 50px;
+  index: 10;
+  cursor: pointer;
+  transform: translate(-25px, -50px);
+  opacity: 0.75;
+}
+
+.fire-icon {
+  height: 150px;
+  width: 150px;
+  transform: translate(-75px, -75px);
+}
+
+.r3-icon {
+  height: 50px;
+  width: 50px;
+  index: 5;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.lamppost-icon:hover {
+  transform: translate(-25px, -50px) scale(2);
+}
+
+.allocate-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: auto;
+  width: auto;
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #146474;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, .5);
+  box-shadow: 0 0 4px 4px rgba(50, 50, 50, .75);
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.allocate-button:hover {
+  background-color: white;
+  color: #146474;
+}
+
+.hub-container {
+  border: 5px solid red;
+  background-color: white;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  transform: translate(-25px, -25px);
+  opacity: 0.8;
+}
+
+.hub-container.suggestion {
+  border: 5px solid red;
+  background-color: white;
+  border-radius: 5px;
+  transform: translate(-25px, -25px);
+  opacity: 0.8;
+}
+
+.r3-icon:hover,
+.lamppost-icon:hover,
+.fire-icon:hover,
+.hub-container:hover {
+  opacity: 1
 }
