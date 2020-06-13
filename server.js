@@ -21,7 +21,7 @@ app.get('/ibm', (req, res) => {
     conn => {
         const sql = "SELECT * FROM "+ TABLE + ";"
         conn.query(sql).then(data => {
-            console.log(data);
+            // console.log(data);
             res.send(data)
             conn.closeSync();
       }, err => {
