@@ -1,5 +1,6 @@
 const express = require('express');
 var ibmdb = require('ibm_db');
+const path = require('path');
 
 const app = express();
 app.use(express.json({limit: '50mb', extended: true})); // support json encoded bodies
@@ -35,4 +36,12 @@ app.get('/ibm', (req, res) => {
 
 /* -------------------- Run Server -------------------- */
 const port = process.env.PORT || 4001;
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  })
+}
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
