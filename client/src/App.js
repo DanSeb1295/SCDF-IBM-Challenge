@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import './App.css';
 import video from './assets/video.mov';
+import axios from 'axios';
+import cloneDeep from 'lodash/cloneDeep';
 
 const APIKey = 'AIzaSyCzDglpbAYLMLeevqKfV7cXftnX_ZBH0Co';
-const google = window.google;
 
 class App extends Component {
   state = {
@@ -13,18 +14,39 @@ class App extends Component {
     heatmapVisible: true,
     heatmapPoints: {    
       positions: [
-        { lat: 1.354, lng: 103.815, weight: 0.1, name: 'Punggol' },
-        { lat: 1.356, lng: 103.8151, weight: 0.2, name: 'Sengkang' },
-        { lat: 1.358, lng: 103.8152, weight: 0.3, name: 'Buona Vista' },
-        { lat: 1.360, lng: 103.8153, weight: 0.4, name: 'Jurong West CC' },
-        { lat: 1.362, lng: 103.8154, weight: 0.9, name: 'Choa Chu Kang LRT' },
-        { lat: 1.364, lng: 103.8155, weight: 1, name: 'Changi Airport'}
+        { id: 1, lat: 1.354, lng: 103.815, weight: 0.1, name: 'Punggol' },
+        { id: 2, lat: 1.356, lng: 103.8151, weight: 0.2, name: 'Sengkang' },
+        { id: 3, lat: 1.358, lng: 103.8152, weight: 0.3, name: 'Buona Vista' },
+        { id: 4, lat: 1.360, lng: 103.8153, weight: 0.4, name: 'Jurong West CC' },
+        { id: 5, lat: 1.362, lng: 103.8154, weight: 0.9, name: 'Choa Chu Kang LRT' },
       ],
       options: {   
         radius: 10,
         opacity: 1
       }
     }
+  }
+
+  componentDidMount = () => {
+    axios.get('./ibm')
+      .then(res => { 
+        let positions = cloneDeep(this.state.heatmapPoints.positions)
+
+        res.data.map(resItem => {
+          for (let i = 0; i < res.data.length; i++) {
+            if (positions[i].id === parseInt(resItem.LOCATION_ID))
+              positions[i].weight = parseFloat(resItem.RISK)
+          }
+        })
+
+        let heatmapPoints = {
+          ...this.state.heatmapPoints,
+          positions
+        }
+
+        this.setState({ heatmapPoints })
+      })
+      .catch(err => { console.log(err) })
   }
 
   toggleVideoFeed = () => {
