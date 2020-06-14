@@ -27,7 +27,7 @@ Team BearBear's submission for the SCDFxIBM Lifesavers' Innovation Challenge: Ca
 You can experience the dashboard for yourselves at [scdf-ibm-challenge.herokuapp.com](https://scdf-ibm-challenge.herokuapp.com/)
 
 ## Short Description
-
+### Integrating With A Smart Environment
 SCDF receives 4000 fire incidents per year, with vegetation fires accounting for 50% of all non-building fires in Singapore, adding on to the already heavy manpower demands for SCDF firefighters and other fire prevention services. 
 
 Our solution creates an end-to-end vegetation fire prevention and detection system based on 3 aspects:
