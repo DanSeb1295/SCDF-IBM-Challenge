@@ -12,15 +12,19 @@ Our team's submission for the SCDFxIBM Lifesavers' Innovation Challenge: Call fo
 
 ## Contents
 
+1. [Live App](#live-app)
 1. [Short description](#short-description)
 1. [The architecture](#the-architecture)
 1. [Demo video](#demo-video)
-1. [Live App](#live-app)
 1. [Long description](#long-description)
 1. [Project roadmap](#project-roadmap)
 1. [Local Installation](#local-installation)
 1. [Built with](#local-installation)
 1. [Acknowledgments](#acknowledgments)
+
+## Live App
+
+You can experience the dashboard for yourselves at [scdf-ibm-challenge.herokuapp.com](https://scdf-ibm-challenge.herokuapp.com/)
 
 ## Short Description
 
@@ -52,9 +56,6 @@ Our solution creates an end-to-end vegetation fire prevention and detection syst
 
 [![Watch the video](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Youtube%20Video%20Cover.png)](https://youtu.be/rkyPSs_EIrw)
 
-## Live App
-
-You can experience the dashboard for yourselves at [scdf-ibm-challenge.herokuapp.com](https://scdf-ibm-challenge.herokuapp.com/)
 
 ## Long Description
 ### The Problem
