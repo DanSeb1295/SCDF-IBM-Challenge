@@ -4,6 +4,8 @@ import './App.css';
 import axios from 'axios';
 import cloneDeep from 'lodash/cloneDeep';
 import videoLow from './assets/video_low.mp4';
+import videoHigh from './assets/video_high.mp4';
+import videoFire from './assets/video_fire.mp4';
 import lampPostIcon from './assets/lamppost.svg';
 import fireIcon from './assets/fire.svg';
 import r3Icon from './assets/3r.png';
@@ -44,7 +46,7 @@ const positionsData = [
   { id: 30, lat: 1.405088, lng: 103.905702, weight: 0.1, name: 'Punggol View Primary School' },
   { id: 31, lat: 1.407662, lng: 103.900252, weight: 0.2, name: 'Waterway Terraces' },
   { id: 32, lat: 1.403887, lng: 103.902590, weight: 1.0, name: 'Punggol MRT' },
-  { id: 33, lat: 1.400262, lng: 103.902354, weight: 0.2, name: 'Edgefield Secondary School' },
+  { id: 33, lat: 1.400262, lng: 103.902354, weight: 0.8, name: 'Edgefield Secondary School' },
   { id: 34, lat: 1.408477, lng: 103.905294, weight: 0.3, name: 'Punggol Town Hub' },
   { id: 35, lat: 1.402161, lng: 103.897351, weight: 0.4, name: 'Punggol Twin Waterfalls' }
 ]
@@ -63,7 +65,6 @@ const hubsSuggestion = [
 
 class App extends Component {
   state = {
-    videoLow,
     allocationMode: false,
     zoom: 12,
     videoFeedVisible: false,
@@ -100,12 +101,14 @@ class App extends Component {
       .catch(err => { console.log(err) })
   }
 
-  toggleVideoFeed = (lat, lng) => {
+  toggleVideoFeed = (location) => {
+    const { lat, lng } = location;
     this.setState(prevState => {
       return {
         center: { lat, lng },
         zoom: 15,
-        videoFeedVisible: !prevState.videoFeedVisible
+        videoFeedVisible: !prevState.videoFeedVisible,
+        video: location.weight > 0.4 ? videoHigh : videoLow
       }
     })
   }
@@ -115,7 +118,8 @@ class App extends Component {
       return {
         center: { lat, lng },
         zoom: 15,
-        videoFeedVisible: !prevState.videoFeedVisible
+        videoFeedVisible: !prevState.videoFeedVisible,
+        video: videoFire
       }
     })
 
@@ -212,7 +216,7 @@ class App extends Component {
   }
 
   render () {
-    const { heatmapVisible, heatmapPoints, videoFeedVisible, videoLow, center, zoom, allocationMode, loading } = this.state;
+    const { heatmapVisible, heatmapPoints, videoFeedVisible, center, zoom, allocationMode, loading, video } = this.state;
     const { positions } = heatmapPoints;
     
     return (
@@ -231,7 +235,7 @@ class App extends Component {
           >
             { positions && 
               positions.map(position => {
-                return <LampPost {...position} onClick={() => this.toggleVideoFeed(position.lat, position.lng)} zoom={zoom}/>
+                return <LampPost {...position} onClick={() => this.toggleVideoFeed(position)} zoom={zoom}/>
               })
             }
             { hubsData && zoom >= 14 && !allocationMode &&
@@ -262,7 +266,7 @@ class App extends Component {
           <AllocationButton allocationMode={allocationMode} onClick={this.toggleAllocationMode} loading={loading} />
           { videoFeedVisible &&
             <div className="dark-overlay" onClick={this.toggleVideoFeed}>
-              <video src={videoLow} autoPlay/>
+              <video src={video} autoPlay/>
             </div>
           }
         </div>
@@ -281,7 +285,7 @@ const TopRiskLocations = props => {
       { sortedLocations &&
         sortedLocations.map((location, index) => 
           <div>
-            <p key={index} onClick={() => onClick(location.lat, location.lng)}>{`${index + 1}. ${location.name}`}</p>
+            <p key={index} onClick={() => onClick(location)}>{`${index + 1}. ${location.name}`}</p>
             { location.weight === 1 &&
               <img className="fire-icon-sm" src={fireIcon} alt=""/>
             }
@@ -298,7 +302,7 @@ const LampPost = props => {
   return (
     <div>
       <img className='lamppost-icon' src={lampPostIcon} alt="LampPost Icon" lat={lat} lng={lng} onClick={onClick} />  
-      { weight > 0.75 && zoom >= 14 &&
+      { weight > 0.4 && zoom >= 14 &&
         <img className='redspot-icon' src={redSpot} alt="" lat={lat} lng={lng} />
       }
     </div>
