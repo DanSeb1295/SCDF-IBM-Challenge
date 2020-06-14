@@ -128,7 +128,7 @@ Upon identification of such fire hazards, our system automatically logs the haza
 
 ## Project Roadmap
 
-![Roadmap](https://github.com/erntye/SCDF-IBM-Helper/blob/master/roadmap%202.png)
+![Roadmap](https://github.com/erntye/SCDF-IBM-Helper/blob/master/roadmap%203.png)
 
 ## Local Installation
 
