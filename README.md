@@ -121,22 +121,19 @@ npx eslint sample-file.js
 
 ## Live demo
 
-You can find a running system to test at [callforcode.mybluemix.net](http://callforcode.mybluemix.net/)
+You can find a running system to test at [scdf-ibm-challenge.herokuapp.com](https://scdf-ibm-challenge.herokuapp.com/)
 
 ## Built with
 
-* [IBM Cloudant](https://cloud.ibm.com/catalog?search=cloudant#search_results) - The NoSQL database used
-* [IBM Cloud Functions](https://cloud.ibm.com/catalog?search=cloud%20functions#search_results) - The compute platform for handing logic
-* [IBM API Connect](https://cloud.ibm.com/catalog?search=api%20connect#search_results) - The web framework used
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [IBM Watson](https://www.ibm.com/sg-en/watson/products-services) - AI for Analytics Model
+* [IBM DB2](https://cloud.ibm.com/catalog?search=cloud%20functions#search_results) - The compute platform for handing logic
+* [IBM Hyper Protect Virtual Servers](https://www.ibm.com/cloud/hyper-protect-virtual-servers) - Virtual Servers for Analytics
+* [React](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [npm](https://maven.apache.org/) - Dependency management
 
 ## Authors
 
 * **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/danseb1295/scdf-ibm-challenge/graphs/contributors) who participated in this project.
 
 ## License
 
