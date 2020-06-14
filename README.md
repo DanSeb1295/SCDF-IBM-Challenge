@@ -147,7 +147,9 @@ pip install -r requirements.txt
     | FRAME         | An image or a frame from the video |
     | MODE          | Either set to `train` or `predict` |
 4. Run 
-```python model.py```
+```
+python model.py
+```
 
 ### Management Dashboard
 
