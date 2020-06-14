@@ -103,12 +103,16 @@ class App extends Component {
 
   toggleVideoFeed = (location) => {
     const { lat, lng } = location;
+    let video = videoLow;
+    if (location.weight > 0.4 && location.weight < 1.0) { video = videoHigh };
+    if (location.weight === 1.0) { video = videoFire };
+    
     this.setState(prevState => {
       return {
+        video,
         center: { lat, lng },
         zoom: 15,
         videoFeedVisible: !prevState.videoFeedVisible,
-        video: location.weight > 0.4 ? videoHigh : videoLow
       }
     })
   }
