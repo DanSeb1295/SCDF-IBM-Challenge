@@ -134,13 +134,7 @@ Upon identification of such fire hazards, our system automatically logs the haza
 
 Besides using accessing the live demo website, the app can also be installed locally. These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Prerequisites
-
-Installing npm
-More details can be found [here](https://www.npmjs.com/get-npm)
-
-### Installing
-#### Analytics Model
+### Analytics Model
 1. Install and create [virtual environment](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
 2. Run 
 ```
@@ -155,25 +149,30 @@ pip install -r requirements.txt
 4. Run 
 ```python model.py```
 
-#### Management Dashboard
-1. Clone
+### Management Dashboard
+
+1. Installing npm
+
+More details can be found [here](https://www.npmjs.com/get-npm)
+
+2. Clone
 ```
 git clone https://github.com/DanSeb1295/SCDF-IBM-Challenge.git
 ```
-2. Install Dependencies
+3. Install Dependencies
 ```
 cd SCDF-IBM-Challenge/Management\ Dashboard
 npm i && npm run client-install
 ```
-3. Remove Browserlist
+4. Remove Browserlist
 ```
 rm client/browserslist;
 ```
-4. Run App
+5. Run App
 ```
 npm run dev
 ```
-5. Open App at the URL
+6. Open App at the URL
 ```
 http://localhost:3000
 ```
