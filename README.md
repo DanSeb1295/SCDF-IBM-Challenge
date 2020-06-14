@@ -54,7 +54,7 @@ Our solution creates an end-to-end vegetation fire prevention and detection syst
 
 ## Live App
 
-You can find a running system to experience the dashboard at [scdf-ibm-challenge.herokuapp.com](https://scdf-ibm-challenge.herokuapp.com/)
+You can experience the dashboard for yourselves at [scdf-ibm-challenge.herokuapp.com](https://scdf-ibm-challenge.herokuapp.com/)
 
 ## Long Description
 ### The Problem
