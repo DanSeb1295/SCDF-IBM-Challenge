@@ -18,7 +18,7 @@ Our team's submission for the SCDFxIBM Lifesavers' Innovation Challenge: Call fo
 1. [Live App](#live-app)
 1. [Long description](#long-description)
 1. [Project roadmap](#project-roadmap)
-1. [Getting started](#getting-started)
+1. [Local Installation](#local-installation)
 1. [Built with](#local-installation)
 1. [Acknowledgments](#acknowledgments)
 
@@ -102,12 +102,14 @@ When a fire is detected from any lamp post sensor, the dashboard immediately inf
 The Red Rhino Robot (3R) is the SCDFs' cutting-edge autonomous firefighting devices. The 3Rs provide a huge opportunity for the SCDF to alleviate pressing manpower constraints by handling lower priority firefighting incidents.
 
 <p align="center">
-    <img src="https://github.com/erntye/SCDF-IBM-Helper/blob/master/3R%20Docking%20Hub.jpg" width="700">
+    <img src="https://github.com/erntye/SCDF-IBM-Helper/blob/master/Red%20rhino%20robot.png" width="700">
 </p>
 
 To allow the 3Rs to respond rapidly to fire incidents, Docking Hubs can be built across the Smart District. These Docking Hubs provide a secure location to store 3R devices when they are on standby and allows for the 3Rs to recharge battery (perhaps through wireless charging) and refill their water tanks.
 
-![Docking Hubs](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Route%20Planning.jpg)
+<p align="center">
+    <img src="https://github.com/erntye/SCDF-IBM-Helper/blob/master/3R%20Docking%20Hub.jpg" width="700">
+</p>
 
 If the 3R is able to extinguish the fire, the firefighters may not need to be deployed, allowing them to be on standby to handle more serious fire emergencies.
 
