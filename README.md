@@ -54,7 +54,7 @@ Our solution creates an end-to-end vegetation fire prevention and detection syst
 
 ## Demo Video
 
-[![Watch the video](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Youtube%20Video%20Cover.png)](https://youtu.be/rkyPSs_EIrw)
+[![Watch the video](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Youtube%20Video%20Cover%202.png)](https://youtu.be/rkyPSs_EIrw)
 
 
 ## Long Description
@@ -128,7 +128,7 @@ Upon identification of such fire hazards, our system automatically logs the haza
 
 ## Project Roadmap
 
-![Roadmap](roadmap.jpg)
+![Roadmap](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Roadmap.jpg)
 
 ## Local Installation
 
