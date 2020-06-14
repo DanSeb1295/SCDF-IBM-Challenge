@@ -3,7 +3,7 @@
 
 <img src="https://github.com/erntye/SCDF-IBM-Helper/blob/master/SCDF%20banner%20large.png">
 
-Team BearBear submission for the SCDFxIBM Lifesavers' Innovation Challenge: Call for Code 2020
+Team BearBear's submission for the SCDFxIBM Lifesavers' Innovation Challenge: Call for Code 2020
 
 ### Our Team
 <p align="center">
