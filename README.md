@@ -20,7 +20,7 @@ Team BearBear's submission for the SCDFxIBM Lifesavers' Innovation Challenge: Ca
 1. [Project Roadmap](#project-roadmap)
 1. [Local Installation](#local-installation)
 1. [Built With](#built-with)
-1. [Acknowledgments](#acknowledgments)
+1. [Acknowledgements](#acknowledgements)
 
 ## Live App
 
@@ -189,6 +189,6 @@ http://localhost:3000
 * [npm](https://www.npmjs.com/) - Dependency Management
 
 
-## Acknowledgments
+## Acknowledgements
 
 * Based on [Billie Thompson's README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) and the [Code and Response Project Sample](https://github.com/Code-and-Response/Project-Sample)
