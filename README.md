@@ -6,7 +6,9 @@
 Our team's submission for the SCDFxIBM Lifesavers' Innovation Challenge: Call for Code 2020
 
 ### Our Team
-<img src="https://github.com/erntye/SCDF-IBM-Helper/blob/master/Our%20Team.png" width="700">
+<p align="center">
+    <img src="https://github.com/erntye/SCDF-IBM-Helper/blob/master/Our%20Team.png" width="700">
+</p>
 
 ## Contents
 
@@ -77,7 +79,9 @@ All these functions are integrated together into a single system and represented
 #### Fire Prevention
 To detect fire hazards and prevent them from escalating into actual fire incidents, we developed a video analytics model based on IBM Watson Visual Recognition Service to identify common causes of fires such as leaf litter or cigarette buds from the live video feeds of the cameras on the Smart Lampposts.
 
-![Leaf Litter](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Leaf%20Litter.png)
+<p align="center">
+    <img src="https://github.com/erntye/SCDF-IBM-Helper/blob/master/Leaf%20Litter.png" width="700">
+</p>
 
 Then, we pass in this data together with other relevant environmental sensor data from the Lampposts such as temperature, humidity, and rainfall into a regression model to generate an overall risk score. If the risk score is above a certain threshold, these areas will be identified as fire hazards and highlighted on the dashboard. 
 
@@ -87,18 +91,23 @@ These fire hazards will also be logged and displayed on another portal that Fire
 #### Fire Detection 
 The video analytics model is also able to detect actual fires from the video feeds. 
 
-![Fire](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Fire.png)
+<p align="center">
+    <img src="https://github.com/erntye/SCDF-IBM-Helper/blob/master/Fire.png" width="500">
+</p>
 
 When a fire is detected from any lamp post sensor, the dashboard immediately informs the SCDF user and automatically schedules a 3R device to attend to the fire while the firefighters are prepared to assess the situation.
 
 #### 3Rs Firefighting Devices
 
-The Red Rhino Robot (3R) is the SCDFs' cutting-edge autonomous firefighting devices. The 3Rs provide a huge opportunity for the SCDF to alleviate pressing manpower constraints by handling lower priority firefighting incidents. 
+The Red Rhino Robot (3R) is the SCDFs' cutting-edge autonomous firefighting devices. The 3Rs provide a huge opportunity for the SCDF to alleviate pressing manpower constraints by handling lower priority firefighting incidents.
 
-![Docking Hubs](https://github.com/erntye/SCDF-IBM-Helper/blob/master/3R%20Docking%20Hub.jpg)
+<p align="center">
+    <img src="https://github.com/erntye/SCDF-IBM-Helper/blob/master/3R%20Docking%20Hub.jpg" width="700">
+</p>
+
 To allow the 3Rs to respond rapidly to fire incidents, Docking Hubs can be built across the Smart District. These Docking Hubs provide a secure location to store 3R devices when they are on standby and allows for the 3Rs to recharge battery (perhaps through wireless charging) and refill their water tanks.
 
-[ insert route planning picture ] 
+![Docking Hubs](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Route%20Planning.jpg)
 
 If the 3R is able to extinguish the fire, the firefighters may not need to be deployed, allowing them to be on standby to handle more serious fire emergencies.
 
