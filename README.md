@@ -3,7 +3,7 @@
 
 <img src="https://github.com/erntye/SCDF-IBM-Helper/blob/master/SCDF%20banner%20large.png">
 
-Our team's submission for the SCDFxIBM Lifesavers' Innovation Challenge: Call for Code 2020
+Team BearBear submission for the SCDFxIBM Lifesavers' Innovation Challenge: Call for Code 2020
 
 ### Our Team
 <p align="center">
@@ -13,13 +13,13 @@ Our team's submission for the SCDFxIBM Lifesavers' Innovation Challenge: Call fo
 ## Contents
 
 1. [Live App](#live-app)
-1. [Short description](#short-description)
-1. [The architecture](#the-architecture)
+1. [Short Description](#short-description)
+1. [The Architecture](#the-architecture)
 1. [Demo video](#demo-video)
-1. [Long description](#long-description)
-1. [Project roadmap](#project-roadmap)
+1. [Long Description](#long-description)
+1. [Project Roadmap](#project-roadmap)
 1. [Local Installation](#local-installation)
-1. [Built with](#local-installation)
+1. [Built With](#local-installation)
 1. [Acknowledgments](#acknowledgments)
 
 ## Live App
