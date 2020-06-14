@@ -19,7 +19,7 @@ Team BearBear's submission for the SCDFxIBM Lifesavers' Innovation Challenge: Ca
 1. [Long Description](#long-description)
 1. [Project Roadmap](#project-roadmap)
 1. [Local Installation](#local-installation)
-1. [Built With](#local-installation)
+1. [Built With](#built-with)
 1. [Acknowledgments](#acknowledgments)
 
 ## Live App
