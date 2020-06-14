@@ -5,7 +5,7 @@
 
 Our team's submission for the SCDFxIBM Lifesavers' Innovation Challenge: Call for Code 2020
 
-### Our team
+### Our Team
 <img src="https://github.com/erntye/SCDF-IBM-Helper/blob/master/Our%20Team.png" width="700">
 
 ## Contents
@@ -13,14 +13,14 @@ Our team's submission for the SCDFxIBM Lifesavers' Innovation Challenge: Call fo
 1. [Short description](#short-description)
 1. [The architecture](#the-architecture)
 1. [Demo video](#demo-video)
+1. [Live App](#live-app)
 1. [Long description](#long-description)
 1. [Project roadmap](#project-roadmap)
 1. [Getting started](#getting-started)
-1. [Live demo](#live-demo)
 1. [Built with](#local-installation)
 1. [Acknowledgments](#acknowledgments)
 
-## Short description
+## Short Description
 
 SCDF receives 4000 fire incidents per year, with vegetation fires accounting for 50% of all non-building fires in Singapore, adding on to the already heavy manpower demands for SCDF firefighters and other fire prevention services. 
 
@@ -30,7 +30,7 @@ Our solution creates an end-to-end vegetation fire prevention and detection syst
 2. Streamlining resources by having Red Rhino Robots (3R) reacting to low priority cases and escalating high priority cases to personnel
 3. Creating synergy and information sharing between SCDF and other fire prevention services 
 
-## The architecture
+## The Architecture
 
 ![System Architecture](https://github.com/erntye/SCDF-IBM-Helper/blob/master/System%20Architecture.png)
 
@@ -46,12 +46,15 @@ Our solution creates an end-to-end vegetation fire prevention and detection syst
 3. System can also make recommendations on optimal 3R distributions across docking hubs
 4. System links to a centralized Fire Hazard Monitoring platform to allow multiple agencies to coordinate action
 
-## Demo video
+## Demo Video
 
-[![Watch the video](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Youtube%20Video%20Cover.png)](https://www.youtube.com/watch?v=ecDTxLZ_mfk)
+[![Watch the video](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Youtube%20Video%20Cover.png)](https://youtu.be/rkyPSs_EIrw)
 
+## Live App
 
-## Long description
+You can find a running system to experience the dashboard at [scdf-ibm-challenge.herokuapp.com](https://scdf-ibm-challenge.herokuapp.com/)
+
+## Long Description
 ### The Problem
 According to the Fire, Ambulance and Enforcement Statistics, the SCDF recorded 3871 fire incidents in 2017. Out of these incidents, vegetation fires account for 368 cases, making up approximately 10% of all fires in Singapore. This adds on to the already heavy manpower demands for firefighting from the SCDF and fire prevention from agencies such as the Wildfire Task Force committee. However, with the advent of Smart Infrastructure and the proliferation of IoT sensors, our group has come up with a solution that could potentially nip many vegetation fire hazards in the bud.
 
@@ -88,6 +91,13 @@ The video analytics model is also able to detect actual fires from the video fee
 
 When a fire is detected from any lamp post sensor, the dashboard immediately informs the SCDF user and automatically schedules a 3R device to attend to the fire while the firefighters are prepared to assess the situation.
 
+#### 3Rs Firefighting Devices
+
+The Red Rhino Robot (3R) is the SCDFs' cutting-edge autonomous firefighting devices. The 3Rs provide a huge opportunity for the SCDF to alleviate pressing manpower constraints by handling lower priority firefighting incidents. 
+
+![Docking Hubs](https://github.com/erntye/SCDF-IBM-Helper/blob/master/3R%20Docking%20Hub.jpg)
+To allow the 3Rs to respond rapidly to fire incidents, Docking Hubs can be built across the Smart District. These Docking Hubs provide a secure location to store 3R devices when they are on standby and allows for the 3Rs to recharge battery (perhaps through wireless charging) and refill their water tanks.
+
 [ insert route planning picture ] 
 
 If the 3R is able to extinguish the fire, the firefighters may not need to be deployed, allowing them to be on standby to handle more serious fire emergencies.
@@ -104,15 +114,9 @@ Upon identification of such fire hazards, our system automatically logs the haza
 
 ![Monitoring System](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Monitoring%20System.png)
 
-[More detail is available here](DESCRIPTION.md)
-
-## Project roadmap
+## Project Roadmap
 
 ![Roadmap](roadmap.jpg)
-
-## Live demo
-
-You can find a running system to experience the dashboard at [scdf-ibm-challenge.herokuapp.com](https://scdf-ibm-challenge.herokuapp.com/)
 
 ## Local Installation
 
@@ -124,7 +128,22 @@ Installing npm
 More details can be found [here](https://www.npmjs.com/get-npm)
 
 ### Installing
+#### Analytics Model
+1. Install and create [virtual environment](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+2. Run 
+```
+pip install -r requirements.txt
+```
+3. Set .env file
 
+    | Env Variables | Meaning                            |
+    | ------------- |:----------------------------------:|
+    | FRAME         | An image or a frame from the video |
+    | MODE          | Either set to `train` or `predict` |
+4. Run 
+```python model.py```
+
+#### Management Dashboard
 1. Clone
 ```
 git clone https://github.com/DanSeb1295/SCDF-IBM-Challenge.git
@@ -147,14 +166,16 @@ npm run dev
 http://localhost:3000
 ```
 
-## Built with
+## Built With
 
 * [IBM Watson](https://www.ibm.com/sg-en/watson/products-services) - AI for Analytics Model
-* [IBM DB2](https://cloud.ibm.com/catalog?search=cloud%20functions#search_results) - The compute platform for handing logic
+* [IBM DB2](https://www.ibm.com/sg-en/analytics/db2) - Relational Database Storage
 * [IBM Hyper Protect Virtual Servers](https://www.ibm.com/cloud/hyper-protect-virtual-servers) - Virtual Servers for Analytics
-* [React](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [npm](https://maven.apache.org/) - Dependency management
+* [React](https://reactjs.org/) - Frontend Web Framework 
+* [scikit-learn](https://scikit-learn.org/stable/) - AI for Regression Model
+* [npm](https://www.npmjs.com/) - Dependency Management
+
 
 ## Acknowledgments
 
-* Based on [Billie Thompson's README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) and the [Code and respoinse Project Sample](https://github.com/Code-and-Response/Project-Sample)
+* Based on [Billie Thompson's README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) and the [Code and Response Project Sample](https://github.com/Code-and-Response/Project-Sample)
