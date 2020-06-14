@@ -12,7 +12,7 @@ import r3Icon from './assets/3r.png';
 import redSpot from './assets/redspot.svg';
 import Loader from 'react-loader-spinner'
 
-const APIKey = 'AIzaSyCzDglpbAYLMLeevqKfV7cXftnX_ZBH0Co';
+const APIKey = 'REPLACE WITH Google Maps API Keys';
 const positionsData = [
   { id: 1, lat: 1.360948, lng: 103.913379, weight: 0.1, name: 'Paya Lebar Air Base' },
   { id: 2, lat: 1.34999, lng: 103.764195, weight: 0.5, name: 'Bukit Batok Nature Park' },
