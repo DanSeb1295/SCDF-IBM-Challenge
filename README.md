@@ -134,47 +134,52 @@ Upon identification of such fire hazards, our system automatically logs the haza
 
 Besides using accessing the live demo website, the app can also be installed locally. These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+### Prerequisites
+
+1. Git clone the repository
+```
+git clone https://github.com/DanSeb1295/SCDF-IBM-Challenge.git
+```
+
 ### Analytics Model
-1. Install and create [virtual environment](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
-2. Run 
+1. Change Directory using
+```
+cd SCDF-IBM-Challenge/Analytics\ Model
+```
+2. Install and create [virtual environment](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+3. Run 
 ```
 pip install -r requirements.txt
 ```
-3. Set .env file
+4. Set .env file
 
     | Env Variables | Meaning                            |
     | ------------- |:----------------------------------:|
     | FRAME         | An image or a frame from the video |
     | MODE          | Either set to `train` or `predict` |
-4. Run 
+5. Run 
 ```
 python model.py
 ```
 
 ### Management Dashboard
 
-1. Installing npm
+1. Install npm as described [here](https://www.npmjs.com/get-npm)
 
-More details can be found [here](https://www.npmjs.com/get-npm)
-
-2. Clone
-```
-git clone https://github.com/DanSeb1295/SCDF-IBM-Challenge.git
-```
-3. Install Dependencies
+2. Install Dependencies
 ```
 cd SCDF-IBM-Challenge/Management\ Dashboard
 npm i && npm run client-install
 ```
-4. Remove Browserlist
+3. Remove Browserlist
 ```
 rm client/browserslist;
 ```
-5. Run App
+4. Run App
 ```
 npm run dev
 ```
-6. Open App at the URL
+5. Open App at the URL
 ```
 http://localhost:3000
 ```
