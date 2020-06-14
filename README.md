@@ -1,12 +1,12 @@
 # <Submission name>
 [![Website](https://img.shields.io/badge/View-Website-blue)](https://scdf-ibm-challenge.herokuapp.com/)
 
-![Banner](https://github.com/erntye/SCDF-IBM-Helper/blob/master/SCDF%20banner.png)
+<img src="https://github.com/erntye/SCDF-IBM-Helper/blob/master/SCDF%20banner%20large.png">
 
 Our team's submission for the SCDFxIBM Lifesavers' Innovation Challenge: Call for Code 2020
 
 ### Our team
-![Team](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Our%20Team.png)
+<img src="https://github.com/erntye/SCDF-IBM-Helper/blob/master/Our%20Team.png" width="700">
 
 ## Contents
 
@@ -53,7 +53,7 @@ Our solution creates an end-to-end vegetation fire prevention and detection syst
 
 ## Demo video
 
-[![Watch the video](https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/IBM-interview-video-image.png)](https://youtu.be/vOgCOoy_Bx0)
+[![Watch the video](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Youtube%20Video%20Cover.png)](https://www.youtube.com/watch?v=ecDTxLZ_mfk)
 
 
 ## Long description
@@ -74,9 +74,12 @@ Our solution involves creating an end-to-end vegetation fire prevention and dete
 
 All these functions are integrated together into a single system and represented by a convenient and intuitive dashboard for the end users of the SCDF and other partner fire prevention agencies like the Wildfire Task Force Committee or NParks.
 
+![Dashboard Home](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Dashboard%20Home.jpg)
+
 #### Fire Prevention
 To detect fire hazards and prevent them from escalating into actual fire incidents, we developed a video analytics model based on IBM Watson Visual Recognition Service to identify common causes of fires such as leaf litter or cigarette buds from the live video feeds of the cameras on the Smart Lampposts.
 
+![Leaf Litter](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Leaf%20Litter.png)
 
 Then, we pass in this data together with other relevant environmental sensor data from the Lampposts such as temperature, humidity, and rainfall into a regression model to generate an overall risk score. If the risk score is above a certain threshold, these areas will be identified as fire hazards and highlighted on the dashboard. 
 
@@ -86,6 +89,8 @@ These fire hazards will also be logged and displayed on another portal that Fire
 #### Fire Detection 
 The video analytics model is also able to detect actual fires from the video feeds. 
 
+![Fire](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Fire.png)
+
 When a fire is detected from any lamp post sensor, the dashboard immediately informs the SCDF user and automatically schedules a 3R device to attend to the fire while the firefighters are prepared to assess the situation.
 
 [ insert route planning picture ] 
@@ -93,12 +98,16 @@ When a fire is detected from any lamp post sensor, the dashboard immediately inf
 If the 3R is able to extinguish the fire, the firefighters may not need to be deployed, allowing them to be on standby to handle more serious fire emergencies.
 
 #### Efficient Resource Allocation
-Being able to predict potential fire hazards, our system is also able to recommend the most efficient resource allocation, allowing SCDF to optimize their limited resources and prioritize high risk areas. The use of autonomous 3R firefighting devices to augment human firefighters has been a rising capability of the SCDF. While it is difficult to fully outsource firefighting to 3R robots in the field, it is much more feasible to utilize 3R robots in our case. Firstly, early onset vegetation fires are usually small and not immediately life threatening, and 3R robots may be able to sufficiently extinguish the fire autonomously. Secondly, in a Smart District, the network of  Lampposts could serve as waypoint beacons for the 3R, significantly reducing the complexity of autonomous navigation for the robots.
+Being able to predict potential fire hazards, our system is also able to recommend the most efficient resource allocation, allowing SCDF to optimize their limited resources and prioritize high risk areas. The use of autonomous 3R firefighting devices to augment human firefighters has been a rising capability of the SCDF. While it is difficult to fully outsource firefighting to 3R robots in the field, it is much more feasible to utilize 3R robots in our case. Firstly, early onset vegetation fires are usually small and not immediately life threatening, and 3R robots may be able to sufficiently extinguish the fire autonomously. Secondly, in a Smart District, the network of Lampposts could serve as waypoint beacons for the 3R, significantly reducing the complexity of autonomous navigation for the robots.
+
+![3R](https://github.com/erntye/SCDF-IBM-Helper/blob/master/3R%20Allocation.jpg)
 
 #### Collaboration with Prevention Services
 Currently, organizations such as NParks conduct patrols and inspections to identify and remedy potential fire hazards. Our solution is able to replace the need for patrols and inspections in the vegetation areas around Smart Districts by utilizing the video feed of Smart lampposts.
 
 Upon identification of such fire hazards, our system automatically logs the hazard into a Fire Hazard Monitoring platform that multiple agencies can use. This serves as a centralized monitoring system that allows agencies to update each other on the identified fire hazards and the status of each fire hazard.
+
+![Monitoring System](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Monitoring%20System.png)
 
 [More detail is available here](DESCRIPTION.md)
 
@@ -106,70 +115,42 @@ Upon identification of such fire hazards, our system automatically logs the haza
 
 ![Roadmap](roadmap.jpg)
 
-## Getting started
+## Live demo
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+You can find a running system to experience the dashboard at [scdf-ibm-challenge.herokuapp.com](https://scdf-ibm-challenge.herokuapp.com/)
+
+## Local Installation
+
+Besides using accessing the live demo website, the app can also be installed locally. These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```bash
-dnf install wget
-wget http://www.example.com/install.sh
-bash install.sh
-```
+Installing npm
+More details can be found [here](https://www.npmjs.com/get-npm)
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be, for example
-
-```bash
-export TOKEN="fffd0923aa667c617a62f5A_fake_token754a2ad06cc9903543f1e85"
-export EMAIL="jane@example.com"
-dnf install npm
-node samplefile.js
-Server running at http://127.0.0.1:3000/
+1. Clone
 ```
-
-And repeat
-
-```bash
-curl localhost:3000
-Thanks for looking at Code-and-Response!
+git clone https://github.com/DanSeb1295/SCDF-IBM-Challenge.git
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why, if you were using something like `mocha` for instnance
-
-```bash
-npm install mocha --save-dev
-vi test/test.js
-./node_modules/mocha/bin/mocha
+2. Install Dependencies
 ```
-
-### And coding style tests
-
-Explain what these tests test and why, if you chose `eslint` for example
-
-```bash
-npm install eslint --save-dev
-npx eslint --init
-npx eslint sample-file.js
+cd SCDF-IBM-Challenge/Management\ Dashboard
+npm i && npm run client-install
 ```
-
-## Live demo
-
-You can find a running system to test at [scdf-ibm-challenge.herokuapp.com](https://scdf-ibm-challenge.herokuapp.com/)
+3. Remove Browserlist
+```
+rm client/browserslist;
+```
+4. Run App
+```
+npm run dev
+```
+5. Open App at the URL
+```
+http://localhost:3000
+```
 
 ## Built with
 
