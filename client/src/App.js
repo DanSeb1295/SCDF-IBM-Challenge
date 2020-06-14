@@ -301,10 +301,10 @@ const LampPost = props => {
 
   return (
     <div>
-      { weight > 0.4 && zoom >= 14 &&
-        <img className='redspot-icon' src={redSpot} alt="" lat={lat} lng={lng} />
-      }
       <img className='lamppost-icon' src={lampPostIcon} alt="LampPost Icon" lat={lat} lng={lng} onClick={onClick} />  
+      { weight > 0.4 && zoom >= 14 &&
+        <img className='redspot-icon' src={redSpot} alt="" lat={lat} lng={lng} onClick={onClick} />
+      }
     </div>
   )
 }
