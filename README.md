@@ -1,10 +1,12 @@
 # <Submission name>
+[![Website](https://img.shields.io/badge/View-Website-blue)](https://scdf-ibm-challenge.herokuapp.com/)
 
-[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://callforcode.org/slack) [![Website](https://img.shields.io/badge/View-Website-blue)](https://code-and-response.github.io/Project-Sample/)
+![Banner](https://github.com/erntye/SCDF-IBM-Helper/blob/master/SCDF%20banner.png)
 
-A basic GitHub repository example for Call for Code submissions and those projects that join the Code and Response initiative. Not all sections or files are required. You can make this as simple or as in-depth as you need.
+Our team's submission for the SCDFxIBM Lifesavers' Innovation Challenge: Call for Code 2020
 
-*Read this in other languages: [English](README.md), [한국어](README.ko.md), [português](README.pt_br.md).*
+### Our team
+![Team](https://github.com/erntye/SCDF-IBM-Helper/blob/master/Our%20Team.png)
 
 ## Contents
 
@@ -25,32 +27,78 @@ A basic GitHub repository example for Call for Code submissions and those projec
 
 ## Short description
 
-### What's the problem?
+SCDF receives 4000 fire incidents per year, with vegetation fires accounting for 50% of all non-building fires in Singapore, adding on to the already heavy manpower demands for SCDF firefighters and other fire prevention services. 
 
-Part of the World Health Organization's guidance on limiting further spread of COVID-19 is to practice social distancing. As a result, schools in most affected areas are taking precautionary measures by closing their facilities. With school-aged children at home for an indeterminate amount of time,  keeping them engaged, entertained, and on top of their education is important.
+Our solution creates an end-to-end vegetation fire prevention and detection system based on 3 aspects:
 
-### How can technology help?
+1. Leveraging Smart Lampposts sensors in Smart Districts to identify fire hazards and fire incidents 
+2. Streamlining resources by having Red Rhino Robots (3R) reacting to low priority cases and escalating high priority cases to personnel
+3. Creating synergy and information sharing between SCDF and other fire prevention services 
 
-Schools and teachers can continue to engage with their students through virtual classrooms, and even create interactive spaces for classes. As parents face a new situation where they may need to homeschool their children, finding appropriate online resources is important as well.
+## The architecture
 
-### The idea
+![System Architecture](https://github.com/erntye/SCDF-IBM-Helper/blob/master/System%20Architecture.png)
 
-It's imperative that learning and creating can continue when educational institutions have to shift the way they teach in times of crises, such as the COVID-19 pandemic. Providing a set of open source tools, backed by IBM Cloud and Watson Services, will enable educators to more easily make content available for their students.
+### Fire Analytics Model
+1. Smart Lampposts and sensors collect video and environmental data
+2. IBM Watson Visual Recognition detects fires and fire hazards using machine learning
+3. Regression model computes an overall fire hazard risk score
+4. Results are saved in an IBM DB2 instance
+
+### Fire Management Dashboard
+1. Heatmap summarizes the fire hazard risk scores across Singapore and allows personnel to view data at any sensor location
+2. In the case of fire, the program automatically routes an available 3R from the nearest remote docking hub
+3. System can also make recommendations on optimal 3R distributions across docking hubs
+4. System links to a centralized Fire Hazard Monitoring platform to allow multiple agencies to coordinate action
 
 ## Demo video
 
 [![Watch the video](https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/IBM-interview-video-image.png)](https://youtu.be/vOgCOoy_Bx0)
 
-## The architecture
-
-![Video transcription/translation app](https://developer.ibm.com/developer/tutorials/cfc-starter-kit-speech-to-text-app-example/images/cfc-covid19-remote-education-diagram-2.png)
-
-1. The user navigates to the site and uploads a video file.
-2. Watson Speech to Text processes the audio and extracts the text.
-3. Watson Translation (optionally) can translate the text to the desired language.
-4. The app stores the translated text as a document within Object Storage.
 
 ## Long description
+### The Problem
+According to the Fire, Ambulance and Enforcement Statistics, the SCDF recorded 3871 fire incidents in 2017. Out of these incidents, vegetation fires account for 368 cases, making up approximately 10% of all fires in Singapore. This adds on to the already heavy manpower demands for firefighting from the SCDF and fire prevention from agencies such as the Wildfire Task Force committee. However, with the advent of Smart Infrastructure and the proliferation of IoT sensors, our group has come up with a solution that could potentially nip many vegetation fire hazards in the bud.
+
+### Improvements in Smart Infrastructure
+GovTech has recently launched the Smart Nation Sensor Platform (SNSP), a nationwide sensor network that aims to collect and analyze data about our urban environment. Under the SNSP, GovTech has begun trialling the Lamppost as a Platform (LaaP) project, which involves fitting lampposts with a network of wireless sensors and cameras to support urban planning and operations. These lampposts are able to detect and monitor various environmental variables such as the humidity, rainfall and temperature of its surroundings, as well as capture real-time video input to analyze human traffic. 
+
+While these are undoubtedly impactful use cases, our group realized that these IoT Lampposts provide a huge untapped potential for vegetation fire prevention. 
+
+### Proposed Solution
+Our solution involves creating an end-to-end vegetation fire prevention and detection system based on 3 aspects:
+
+1. Leveraging Smart Lampposts sensors in Smart Districts to identify fire hazards and fire incidents 
+2. Streamlining resources by having Red Rhino Robots (3R) reacting to low priority cases and escalating high priority cases to personnel
+3. Creating synergy and information sharing between SCDF and other fire prevention services 
+
+All these functions are integrated together into a single system and represented by a convenient and intuitive dashboard for the end users of the SCDF and other partner fire prevention agencies like the Wildfire Task Force Committee or NParks.
+
+#### Fire Prevention
+To detect fire hazards and prevent them from escalating into actual fire incidents, we developed a video analytics model based on IBM Watson Visual Recognition Service to identify common causes of fires such as leaf litter or cigarette buds from the live video feeds of the cameras on the Smart Lampposts.
+
+
+Then, we pass in this data together with other relevant environmental sensor data from the Lampposts such as temperature, humidity, and rainfall into a regression model to generate an overall risk score. If the risk score is above a certain threshold, these areas will be identified as fire hazards and highlighted on the dashboard. 
+
+These fire hazards will also be logged and displayed on another portal that Fire Prevention Services can access. This will be elaborated on later below.
+
+
+#### Fire Detection 
+The video analytics model is also able to detect actual fires from the video feeds. 
+
+When a fire is detected from any lamp post sensor, the dashboard immediately informs the SCDF user and automatically schedules a 3R device to attend to the fire while the firefighters are prepared to assess the situation.
+
+[ insert route planning picture ] 
+
+If the 3R is able to extinguish the fire, the firefighters may not need to be deployed, allowing them to be on standby to handle more serious fire emergencies.
+
+#### Efficient Resource Allocation
+Being able to predict potential fire hazards, our system is also able to recommend the most efficient resource allocation, allowing SCDF to optimize their limited resources and prioritize high risk areas. The use of autonomous 3R firefighting devices to augment human firefighters has been a rising capability of the SCDF. While it is difficult to fully outsource firefighting to 3R robots in the field, it is much more feasible to utilize 3R robots in our case. Firstly, early onset vegetation fires are usually small and not immediately life threatening, and 3R robots may be able to sufficiently extinguish the fire autonomously. Secondly, in a Smart District, the network of  Lampposts could serve as waypoint beacons for the 3R, significantly reducing the complexity of autonomous navigation for the robots.
+
+#### Collaboration with Prevention Services
+Currently, organizations such as NParks conduct patrols and inspections to identify and remedy potential fire hazards. Our solution is able to replace the need for patrols and inspections in the vegetation areas around Smart Districts by utilizing the video feed of Smart lampposts.
+
+Upon identification of such fire hazards, our system automatically logs the hazard into a Fire Hazard Monitoring platform that multiple agencies can use. This serves as a centralized monitoring system that allows agencies to update each other on the identified fire hazards and the status of each fire hazard.
 
 [More detail is available here](DESCRIPTION.md)
 
